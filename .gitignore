@@ -1,0 +1,12 @@
+# Eixida de MkDocs
+site/
+
+# Entorns i artefactes de Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Fitxers locals
+.DS_Store
+.cache/

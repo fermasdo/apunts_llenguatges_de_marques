@@ -1,0 +1,78 @@
+site_name: Llenguatges de Marques
+site_description: Apunts i recursos de consulta del mòdul de Llenguatges de Marques
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ca
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Canvia al tema clar
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Canvia al tema fosc
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Usa el tema del sistema
+
+nav:
+  - Portada: index.md
+  - Guia del mòdul: guia/index.md
+  - Unitats:
+      - Itinerari: unitats/index.md
+      - "0. Punt de partida": unitats/00-punt-de-partida.md
+      - "1. HTML semàntic": unitats/01-html-semantic.md
+      - "2. CSS i presentació": unitats/02-css.md
+      - "3. XML i espais de noms": unitats/03-xml.md
+      - "4. Validació XML": unitats/04-validacio-xml.md
+      - "5. XPath i XSLT": unitats/05-xpath-xslt.md
+      - "6. Sindicació": unitats/06-sindicacio.md
+      - "7. JSON, YAML i APIs": unitats/07-json-yaml.md
+      - "8. Consulta i emmagatzematge": unitats/08-consulta-emmagatzematge.md
+      - "9. Sistemes empresarials": unitats/09-sistemes-empresarials.md
+  - Reptes: reptes/index.md
+  - Consulta:
+      - Punt de partida: consulta/index.md
+      - Glossari: consulta/glossari.md
+  - Professorat:
+      - Espai docent: professorat/index.md
+      - Programació inicial: professorat/programacio-inicial.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
