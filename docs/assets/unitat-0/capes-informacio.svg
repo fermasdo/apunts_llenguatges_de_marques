@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 830" role="img" aria-labelledby="capes-title capes-desc">
+  <title id="capes-title">Quatre aspectes complementaris de la informació</title>
+  <desc id="capes-desc">Quatre targetes apilades, sense ordre ni fletxes, presenten contingut, estructura, presentació i semàntica com a aspectes complementaris d'una mateixa informació.</desc>
+  <rect width="600" height="830" rx="24" fill="#f8fafc"/>
+  <rect x="14" y="14" width="572" height="802" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="300" y="55" text-anchor="middle" font-size="32" font-weight="700" fill="#172033">Quatre aspectes complementaris</text>
+    <text x="300" y="91" text-anchor="middle" font-size="26" fill="#475569">Quatre preguntes sobre una mateixa dada</text>
+
+    <rect x="34" y="120" width="532" height="145" rx="18" fill="#eef2ff" stroke="#4051b5" stroke-width="3"/>
+    <circle cx="72" cy="163" r="20" fill="#4051b5"/>
+    <text x="108" y="173" font-size="29" font-weight="700" fill="#172033">Contingut</text>
+    <text x="58" y="216" font-size="26" fill="#334155">Quina dada comuniquem?</text>
+    <text x="58" y="248" font-size="26" font-weight="700" fill="#26347f">Exemple: 24,90</text>
+
+    <rect x="34" y="280" width="532" height="145" rx="18" fill="#ecfeff" stroke="#0e7490" stroke-width="3"/>
+    <rect x="57" y="303" width="30" height="30" rx="5" fill="#0e7490" transform="rotate(45 72 318)"/>
+    <text x="108" y="333" font-size="29" font-weight="700" fill="#172033">Estructura</text>
+    <text x="58" y="376" font-size="26" fill="#334155">Quines parts hi ha?</text>
+    <text x="58" y="408" font-size="26" font-weight="700" fill="#0e5f75">Com es relacionen?</text>
+
+    <rect x="34" y="440" width="532" height="145" rx="18" fill="#fff7ed" stroke="#a15c00" stroke-width="3"/>
+    <rect x="52" y="463" width="40" height="40" rx="7" fill="#a15c00"/>
+    <text x="108" y="493" font-size="29" font-weight="700" fill="#172033">Presentació</text>
+    <text x="58" y="536" font-size="26" fill="#334155">Com es mostra a la persona usuària?</text>
+    <text x="58" y="568" font-size="26" font-weight="700" fill="#8a4f00">Exemple: 24,90 € · alineat</text>
+
+    <rect x="34" y="600" width="532" height="145" rx="18" fill="#ecfdf5" stroke="#26734d" stroke-width="3"/>
+    <path d="M72 622 L94 660 L50 660 Z" fill="#26734d"/>
+    <text x="108" y="653" font-size="29" font-weight="700" fill="#172033">Semàntica</text>
+    <text x="58" y="696" font-size="26" fill="#334155">Què significa la dada?</text>
+    <text x="58" y="728" font-size="26" font-weight="700" fill="#1f6341">És un preu expressat en euros.</text>
+
+    <rect x="60" y="764" width="480" height="42" rx="21" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="300" y="794" text-anchor="middle" font-size="26" font-weight="700" fill="#172033">Separar-los ajuda a prendre decisions.</text>
+  </g>
+</svg>

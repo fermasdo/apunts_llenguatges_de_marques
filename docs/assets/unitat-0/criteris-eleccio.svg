@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1120" role="img" aria-labelledby="criteris-title criteris-desc">
+  <title id="criteris-title">Sis criteris per triar un format</title>
+  <desc id="criteris-desc">Recorregut vertical de sis passos: consumidor, tipus d'informació, estàndard o contracte, eines disponibles, llegibilitat i manteniment, i interoperabilitat.</desc>
+  <defs>
+    <marker id="criteris-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#4051b5"/>
+    </marker>
+  </defs>
+  <rect width="600" height="1120" rx="24" fill="#f8fafc"/>
+  <rect x="14" y="14" width="572" height="1092" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="300" y="55" text-anchor="middle" font-size="32" font-weight="700" fill="#172033">Sis criteris per decidir</text>
+    <text x="300" y="91" text-anchor="middle" font-size="26" fill="#475569">Comença sempre pel consumidor.</text>
+
+    <path d="M300 252 V268 M300 408 V424 M300 564 V580 M300 720 V736 M300 876 V892" stroke="#4051b5" stroke-width="4" marker-end="url(#criteris-arrow)"/>
+
+    <rect x="48" y="126" width="504" height="126" rx="18" fill="#eef2ff" stroke="#4051b5" stroke-width="3"/>
+    <circle cx="82" cy="166" r="24" fill="#4051b5"/><text x="82" y="175" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">1</text>
+    <text x="120" y="174" font-size="28" font-weight="700" fill="#172033">Consumidor</text>
+    <text x="70" y="210" font-size="26" fill="#334155">Quina persona o programa</text>
+    <text x="70" y="240" font-size="26" fill="#334155">llegirà el fitxer?</text>
+
+    <rect x="48" y="282" width="504" height="126" rx="18" fill="#ecfeff" stroke="#0e7490" stroke-width="3"/>
+    <circle cx="82" cy="322" r="24" fill="#0e7490"/><text x="82" y="331" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">2</text>
+    <text x="120" y="330" font-size="28" font-weight="700" fill="#172033">Tipus d'informació</text>
+    <text x="70" y="370" font-size="26" fill="#334155">Document, dades, configuració</text>
+    <text x="70" y="400" font-size="26" fill="#334155">o documentació?</text>
+
+    <rect x="48" y="438" width="504" height="126" rx="18" fill="#fff7ed" stroke="#a15c00" stroke-width="3"/>
+    <circle cx="82" cy="478" r="24" fill="#a15c00"/><text x="82" y="487" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">3</text>
+    <text x="120" y="486" font-size="28" font-weight="700" fill="#172033">Estàndard / contracte</text>
+    <text x="70" y="526" font-size="26" fill="#334155">Hi ha una especificació, esquema</text>
+    <text x="70" y="556" font-size="26" fill="#334155">o interfície obligatòria?</text>
+
+    <rect x="48" y="594" width="504" height="126" rx="18" fill="#ecfdf5" stroke="#26734d" stroke-width="3"/>
+    <circle cx="82" cy="634" r="24" fill="#26734d"/><text x="82" y="643" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">4</text>
+    <text x="120" y="642" font-size="28" font-weight="700" fill="#172033">Eines disponibles</text>
+    <text x="70" y="682" font-size="26" fill="#334155">Podem editar, analitzar, validar</text>
+    <text x="70" y="712" font-size="26" fill="#334155">i transformar amb fiabilitat?</text>
+
+    <rect x="48" y="750" width="504" height="126" rx="18" fill="#eef2ff" stroke="#4051b5" stroke-width="3"/>
+    <circle cx="82" cy="790" r="24" fill="#4051b5"/><text x="82" y="799" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">5</text>
+    <text x="120" y="798" font-size="27" font-weight="700" fill="#172033">Llegibilitat i manteniment</text>
+    <text x="70" y="838" font-size="26" fill="#334155">Qui el modificarà</text>
+    <text x="70" y="868" font-size="26" fill="#334155">i amb quina freqüència?</text>
+
+    <rect x="48" y="906" width="504" height="126" rx="18" fill="#f1f5f9" stroke="#64748b" stroke-width="3"/>
+    <circle cx="82" cy="946" r="24" fill="#475569"/><text x="82" y="955" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">6</text>
+    <text x="120" y="954" font-size="28" font-weight="700" fill="#172033">Interoperabilitat</text>
+    <text x="70" y="994" font-size="26" fill="#334155">Quins sistemes l'intercanviaran</text>
+    <text x="70" y="1024" font-size="26" fill="#334155">sense perdre significat?</text>
+
+    <rect x="76" y="1050" width="448" height="42" rx="21" fill="#4051b5"/>
+    <text x="300" y="1080" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Decisió justificada i comprovable</text>
+  </g>
+</svg>
