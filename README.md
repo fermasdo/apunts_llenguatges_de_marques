@@ -28,6 +28,12 @@ mkdocs serve
 
 El servidor local mostra l'adreça exacta en iniciar-se. Els canvis en els fitxers de `docs/` recarreguen la pàgina automàticament.
 
+## Peu de pàgina i data d'actualització
+
+El peu global identifica l'autor com a **Ferran Mas Doménech**. En cada construcció, el hook natiu `hooks/last_update.py` consulta `git log -1 --format=%cs` i mostra la data de l'últim commit de `HEAD` en valencià (per exemple, `21 de setembre de 2026`).
+
+En local, la data correspon al `HEAD` que tens construït. En GitHub Actions, correspon al commit descarregat per a aquella execució; en el desplegament de Pages és, per tant, l'última actualització publicada. Si Git no està disponible (per exemple, en una còpia del codi sense metadades Git), la construcció continua i conserva el text de reserva `Última actualització: no disponible`.
+
 ## Validació
 
 Abans de proposar un canvi, executa:
@@ -50,6 +56,7 @@ pip-compile --generate-hashes --no-emit-index-url --strip-extras requirements.in
 
 - `docs/`: font dels apunts i recursos.
 - `mkdocs.yml`: navegació, tema i extensions.
+- `hooks/last_update.py`: data de l'últim commit al peu global.
 - `requirements.in` i `requirements.txt`: dependències directes i bloqueig reproduïble.
 - `.github/workflows/docs.yml`: validació i publicació en GitHub Pages.
 

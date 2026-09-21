@@ -1,8 +1,12 @@
 site_name: Llenguatges de Marques
 site_description: Apunts i recursos de consulta del mòdul de Llenguatges de Marques
+copyright: "Autor: Ferran Mas Doménech · Última actualització: no disponible"
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
+
+hooks:
+  - hooks/last_update.py
 
 theme:
   name: material
@@ -50,9 +54,6 @@ nav:
       - "8. Consulta i emmagatzematge": unitats/08-consulta-emmagatzematge.md
       - "9. Sistemes empresarials": unitats/09-sistemes-empresarials.md
   - Reptes: reptes/index.md
-  - Consulta:
-      - Punt de partida: consulta/index.md
-      - Glossari: consulta/glossari.md
 
 plugins:
   - search
