@@ -4,7 +4,6 @@ Este lloc reunirà els apunts, les activitats i els recursos de consulta del mò
 
 ## Comença ací
 
-- Consulta la [Guia del mòdul](guia/index.md) per saber com s'organitzarà el treball.
 - Accedix a les [Unitats](unitats/index.md) per seguir els apunts.
 - Practica amb els [Reptes](reptes/index.md).
 - Resol dubtes des de l'espai de [Consulta](consulta/index.md).

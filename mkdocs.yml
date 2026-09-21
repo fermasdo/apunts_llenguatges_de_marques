@@ -37,7 +37,6 @@ theme:
 
 nav:
   - Portada: index.md
-  - Guia del mòdul: guia/index.md
   - Unitats:
       - Itinerari: unitats/index.md
       - "0. Punt de partida": unitats/00-punt-de-partida.md
@@ -54,9 +53,6 @@ nav:
   - Consulta:
       - Punt de partida: consulta/index.md
       - Glossari: consulta/glossari.md
-  - Professorat:
-      - Espai docent: professorat/index.md
-      - Programació inicial: professorat/programacio-inicial.md
 
 plugins:
   - search
@@ -64,6 +60,8 @@ plugins:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg

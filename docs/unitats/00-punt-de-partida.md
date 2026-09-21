@@ -1,886 +1,288 @@
-# 0. Punt de partida: informació i eines
+# 0. Punt de partida: la primera pàgina web
 
-## :material-map-outline: Abans de començar
+Esta unitat inicia el curs des de zero. Durant **dues setmanes orientatives** aprendràs a reconéixer com s'organitza la informació en un document web, a crear un primer fitxer HTML i a comprovar-ne el resultat. No pressuposa experiència amb programació, Git ni cap eina de línia d'ordres.
 
-| Aspecte | Orientació |
-|---|---|
-| **Propòsit** | Entendre per què estructurem informació i preparar una manera de treballar que permeta editar, comprovar i versionar fitxers de text. |
-| **Duració orientativa** | 2 setmanes, inclosos l'exemple guiat, la pràctica autònoma i el minirepte. |
-| **Coneixements previs** | Crear, guardar i localitzar fitxers i carpetes; usar un navegador. No cal conéixer HTML, XML, JSON ni Git. |
-| **Posició en el curs** | És la introducció comuna abans d'aprofundir en HTML, XML, JSON i YAML. Es relaciona metodològicament amb RA1. |
+<div class="grid cards" markdown>
 
-!!! note "Sobre els objectius"
-    Els objectius següents són metes observables creades per organitzar esta unitat. No són una transcripció de resultats d'aprenentatge ni de criteris oficials.
+-   **Hui · primera sessió**
 
-### En acabar podràs
+    ---
 
-- separar el contingut, l'estructura, la presentació i la semàntica d'una informació;
-- reconéixer la funció inicial d'HTML, XML, JSON, YAML, TOML i Markdown;
-- justificar una elecció de format segons qui consumirà la informació i amb quines eines;
-- preparar un entorn mínim amb editor, navegador, terminal, analitzador sintàctic i Git;
-- organitzar un projecte amb noms previsibles i rutes relatives;
-- comprovar la sintaxi d'un XML i d'un JSON amb una ordre reproduïble;
-- crear un repositori Git local i registrar un primer canvi;
-- documentar un error de manera que una altra persona el puga reproduir.
+    Amb només un editor de text pla i un navegador, crearàs, guardaràs i obriràs la teua primera pàgina.
 
-### Ruta de treball semipresencial
+-   **Després · continuar la unitat**
 
-Una distribució possible és esta:
+    ---
 
-| Moment | Treball concret |
-|---|---|
-| **Abans de la sessió 1** | Llig les seccions 1 i 2. Intenta l'activació inicial i les activitats curtes 1 i 2. |
-| **Sessió guiada 1** | Contrasta les activitats inicials, recorre la història mínima de la secció 3 i compara els sis exemples de la secció 4. |
-| **Treball autònom 1** | Llig la secció 5 i completa l'activitat curta 3 amb quatre decisions justificades. |
-| **Abans de la sessió 2** | Llig les seccions 6 i 7, comprova si disposes de Python 3 i Git, i crea la carpeta de treball. |
-| **Sessió guiada 2** | Reproduïx l'exemple complet de la secció 8, inclosa la prova negativa amb `NaN`, i aplica el cicle de diagnòstic de la secció 9 al primer error. |
-| **Treball autònom 2** | Completa la pràctica de la secció 10, el minirepte de la secció 11 i l'autoavaluació de la secció 12. |
+    Relacionaràs estructura i aparença, reconeixeràs formats habituals i aplicaràs el que has fet en un minirepte.
 
-Esta seqüència permet arribar a cada sessió amb un intent propi i reserva l'acompanyament per a les decisions i els primers errors. Per a orientacions generals sobre el ritme o sobre com demanar ajuda, consulta la [guia del mòdul](../guia/index.md).
+</div>
 
-## :material-layers-outline: 1. De text solt a informació estructurada
+## Propòsit i resultats observables
 
-### Activació inicial
+Una pàgina web no comença amb disseny: comença amb **informació** i amb una manera d'identificar cada part. En acabar la unitat podràs:
 
-Llig esta nota d'un catàleg fictici:
+- [ ] crear i localitzar un fitxer HTML en una carpeta;
+- [ ] obrir-lo al navegador, modificar-lo amb un editor de text pla i comprovar el canvi;
+- [ ] identificar un títol, un paràgraf i una llista en una pàgina;
+- [ ] explicar, amb un exemple, la diferència entre **estructura** i **aparença**;
+- [ ] revisar el nom, l'extensió i la codificació d'un fitxer quan el resultat no siga l'esperat;
+- [ ] reconéixer per a què s'usen HTML, XML, JSON, YAML, TOML i Markdown, sense haver-ne de dominar la sintaxi.
 
-```text title="Informació sense estructurar"
-Teclat USB P-001 24,90 EUR sí; Ratolí òptic P-002 18,50 EUR no
+!!! note "Abast de la unitat"
+    La duració de dues setmanes és una proposta de treball per al grup, no un nombre d'hores oficial. HTML s'aprofundirà en la unitat següent; ací construïm la base per començar amb seguretat.
+
+## Hui: primera sessió
+
+**Necessites:** un ordinador, un **editor de text pla** i un **navegador**. Un editor de text pla guarda caràcters sense el format d'un processador de textos; el navegador és el programa que interpreta una pàgina web i la mostra.
+
+No has d'instal·lar res ni preparar cap compte. Si no saps crear una carpeta o guardar un fitxer, seguix els passos i demana ajuda en el moment en què et quedes.
+
+### Abans d'escriure: ordenem una nota
+
+En un taller fictici apareix esta informació seguida:
+
+```text title="Nota de partida"
+Catàleg de l’aula Materials per a començar. Quadern Retolador
 ```
 
-Una persona pot deduir què significa cada tros. Una aplicació ho té més difícil:
+**Pensa-ho un minut:** quina part és el títol? Quina explica el contingut? Quines paraules formarien una llista?
 
-- On acaba el nom de cada producte?
-- `sí` indica disponibilitat, acceptació o una altra cosa?
-- Els dos imports usen la mateixa moneda?
-- Com afegiríem una categoria sense trencar la lectura anterior?
+??? success "Una possible organització"
+    - **Títol:** Catàleg de l’aula
+    - **Presentació:** Materials per a començar.
+    - **Llista de materials:** Quadern i Retolador.
 
-**Abans de continuar**, reescriu la nota amb una línia per producte i posa un nom davant de cada dada. No cal usar cap format conegut.
+    La informació no ha canviat: ara se'n veuen les parts i la funció.
 
-Una possible organització visual seria:
+### Dos conceptes per començar
 
-| Codi | Nom | Preu | Moneda | Disponible |
-|---|---|---:|---|---|
-| P-001 | Teclat USB | 24,90 | EUR | sí |
-| P-002 | Ratolí òptic | 18,50 | EUR | no |
-
-Ara les parts són identificables. Hem introduït **estructura**, encara que no hem triat un format de fitxer.
-
-### Quatre aspectes que convé separar
-
-| Aspecte | Pregunta que respon | Exemple |
+| Concepte | Significat | Exemple en la nota |
 |---|---|---|
-| **Contingut** | Quina informació comuniquem? | `24,90` |
-| **Estructura** | Quines parts hi ha i com es relacionen? | un preu pertany a un producte |
-| **Presentació** | Com es mostra a la persona usuària? | `24,90 €` en negreta i alineat a la dreta |
-| **Semàntica** | Què significa cada part? | és un preu expressat en euros, no una quantitat d'unitats |
+| **Estructura** | L'organització i la funció de les parts d'un document. | Saber que «Catàleg de l’aula» és un títol i que els materials formen una llista. |
+| **Aparença** | La manera visual com es mostra eixa estructura. | Veure el títol més gran o una marca davant de cada material. |
 
-![Quatre targetes apilades presenten contingut, estructura, presentació i semàntica com a aspectes complementaris d'una informació.](../assets/unitat-0/capes-informacio.svg){ role="img" }
+Hui ens centrarem en l'estructura. El navegador aplicarà una aparença bàsica; més avant treballarem com controlar-la.
 
-*Una mateixa dada es pot llegir des de quatre aspectes complementaris.*
+### Prepara el fitxer
 
-La **semàntica** és el significat. Una etiqueta anomenada `price`, un atribut `currency="EUR"` o una capçalera de taula «Preu» aporten pistes perquè persones i programes interpreten la dada.
+Un **fitxer** és un document guardat amb un nom. Una **carpeta** agrupa fitxers. L'**extensió** és la part final del nom —per exemple, `.html`— i ajuda les aplicacions a identificar el tipus de document.
 
-La **presentació** no hauria de ser l'única pista. Si només distingim els productes disponibles amb color verd, una màquina, una impressió en blanc i negre o una persona que no perceba eixe color pot perdre la informació.
+1. Obri el gestor de fitxers (Explorador de fitxers, Finder o una aplicació equivalent) i crea una carpeta anomenada `unitat-0` en la ubicació que indique l'aula.
+2. Obri l'editor de text pla i crea un document buit.
+3. Copia exactament el codi de l'apartat següent.
 
-!!! example "Activitat curta 1 · Posa nom a les dades"
-    **Objectiu:** distingir contingut i estructura.
+!!! warning "Text pla, no document de Word"
+    No guardes el document com a `.docx`, `.odt` o `.rtf`. Necessitem text pla amb extensió `.html`. En TextEdit, per exemple, usa **Format → Convertix a text sense format** abans d'escriure.
 
-    **Punt de partida:** `Auriculars A-014 39,95 EUR estoc 8`.
+### Primer exemple HTML: catàleg de l'aula
 
-    **Resultat observable:** una taula o un esquema amb cinc camps identificats.
+**HTML** és un llenguatge de marques: afegix indicacions al text per identificar les parts d'un document web. Estes indicacions s'escriuen entre els signes `<` i `>`.
 
-    **Comprovació:** una altra persona ha de poder assenyalar el codi, el nom, el preu, la moneda i l'estoc sense demanar aclariments.
-
-## :material-shape-outline: 2. Famílies de llenguatges i formats
-
-No tot el text estructurat és un llenguatge de marques. Estes definicions servixen per començar:
-
-| Concepte | Definició | Exemples habituals |
-|---|---|---|
-| **Llenguatge de marques** | Sistema de marques integrades en un document per descriure'n l'estructura o el significat. | HTML, XML, SVG |
-| **Format de serialització** | Convenció per convertir una estructura de dades en una seqüència que es puga guardar o transmetre i reconstruir després. | JSON, YAML, XML |
-| **Format o llenguatge de configuració** | Sintaxi usada per declarar opcions i paràmetres que una eina llegirà. Descriu què configurar, no els passos d'un algorisme. | TOML, YAML, JSON, XML |
-| **Llenguatge de text lleuger** | Sintaxi textual reduïda que dona estructura bàsica a documents fàcils de llegir també en brut. | Markdown |
-| **Llenguatge de programació** | Llenguatge formal que permet expressar dades i operacions, inclòs el control del que executarà un sistema. | JavaScript, Python, Java |
-
-Les categories **se solapen segons l'ús**. XML és un llenguatge de marques i també pot serialitzar dades o guardar configuració. YAML és un format de serialització que s'usa sovint per configurar eines. Markdown també es descriu habitualment com a llenguatge de marques lleuger.
-
-En canvi, el fet que JSON nasquera a partir de la sintaxi de JavaScript no el convertix en un llenguatge de programació. JSON representa dades: no incorpora bucles, funcions ni instruccions de control.
-
-![Matriu de sis formats i quatre famílies que mostra els solapaments d'XML, YAML i Markdown amb punts i una llegenda textual.](../assets/unitat-0/families-formats.svg){ role="img" }
-
-*La matriu relaciona cada format amb els usos principals, però el context concret continua sent decisiu.*
-
-!!! warning "L'extensió no garantix el contingut"
-    Anomenar `catalog.json` un fitxer no fa que siga JSON correcte. L'extensió orienta les eines; un analitzador ha de comprovar que el contingut respecta la sintaxi.
-
-### Activitat curta 2 · Classifica sense forçar una sola caixa
-
-**Objectiu:** reconéixer categories i solapaments.
-
-**Punt de partida:** classifica `index.html`, `catalog.json`, `mkdocs.yml`, `pyproject.toml`, `README.md` i `app.py`.
-
-**Resultat observable:** una taula amb el fitxer, la categoria principal en eixe ús i una justificació d'una frase.
-
-**Comprovació:** has d'indicar almenys un cas que podria pertànyer a dues categories i explicar per què.
-
-## :material-history: 3. Història mínima per entendre el present
-
-La història importa perquè explica d'on venen algunes decisions, no perquè calga memoritzar dates.
-
-```text title="Evolució resumida"
-GML ──> SGML ──┬──> HTML ──> HTML Living Standard
-               └──> XML 1.0
-```
-
-**Lectura textual de l'esquema:** GML va introduir una manera de descriure l'estructura dels documents. SGML va formalitzar esta tradició com a metallenguatge. HTML es va crear per als documents de la web i XML va simplificar principis procedents de SGML per facilitar l'intercanvi i el processament. L'HTML actual evoluciona com un estàndard viu.
-
-- **GML** va mostrar que es podia marcar la funció d'una part del document i separar-la de la seua aparença.
-- **SGML** va permetre definir llenguatges de marques. La seua influència és important, però no serà una eina de treball quotidiana en el curs.
-- **HTML** va aplicar esta tradició a documents enllaçats de la web. Hui és el llenguatge semàntic central de la plataforma web.
-- **XML** va oferir una sintaxi estricta i extensible per crear vocabularis i intercanviar documents estructurats.
-
-La conclusió pràctica és que HTML i XML compartixen una tradició, però no tenen exactament les mateixes regles ni la mateixa finalitat. Les [unitats 1](01-html-semantic.md) i [3](03-xml.md) ho desenvoluparan.
-
-## :material-file-code-outline: 4. Una primera mirada a sis formats
-
-Usarem un mateix model conceptual sempre que siga raonable:
-
-- catàleg amb moneda `EUR`;
-- un producte amb codi `P-001`;
-- nom `Teclat USB`;
-- preu `24.90`;
-- disponibilitat certa.
-
-L'objectiu encara no és memoritzar tota la sintaxi, sinó localitzar la jerarquia i identificar com s'expressen els noms i els valors.
-
-### HTML: un document per a la web
-
-HTML usa elements amb significat compartit pel navegador i altres tecnologies web. En este cas crea un document que una persona pot consultar; no pretén ser una còpia exacta d'una estructura d'objectes.
-
-```html title="catalog.html"
+```html title="primera-pagina.html"
 <!doctype html>
 <html lang="ca">
   <head>
-    <meta charset="utf-8">
-    <title>Catàleg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>El meu primer catàleg</title>
   </head>
   <body>
-    <main>
-      <h1>Catàleg</h1>
-      <p>Moneda: EUR</p>
-      <article>
-        <h2>Teclat USB</h2>
-        <p>Codi: <code>P-001</code></p>
-        <p>Preu: <data value="24.90">24,90 €</data></p>
-        <p>Disponible</p>
-      </article>
-    </main>
+    <h1>Catàleg de l’aula</h1>
+    <p>Materials per a començar.</p>
+    <ul>
+      <li>Quadern</li>
+      <li>Retolador</li>
+    </ul>
   </body>
 </html>
 ```
 
-`h1`, `article` i `data` aporten estructura o semàntica. La presentació visual es treballaria amb CSS. La [unitat 1](01-html-semantic.md) aprofundirà en documents HTML complets, semàntica i accessibilitat.
+Guarda'l dins de `unitat-0` amb el nom complet **`primera-pagina.html`**. Si l'editor et pregunta la codificació, tria **UTF-8**: és una manera de guardar els caràcters que conserva accents com el de «Catàleg».
 
-### XML: marques amb vocabulari propi
+Obri el fitxer amb el navegador. Pots fer clic amb el botó dret i triar **Obri amb**, o arrossegar-lo a una finestra del navegador. És un **fitxer local**: està al teu ordinador, no està publicat a Internet i no necessita connexió.
 
-XML permet definir noms d'elements i atributs adequats al domini del problema.
+<div class="grid cards" markdown>
 
-```xml title="catalog.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog currency="EUR">
-  <product code="P-001">
-    <name>Teclat USB</name>
-    <price>24.90</price>
-    <available>true</available>
-  </product>
-</catalog>
-```
+-   **Compara el codi executable**
 
-`catalog` és l'element arrel; `product` depén d'ell; `currency` i `code` són atributs. Sense un esquema, el text `24.90` no té per si mateix un tipus numèric declarat. La unitat 3 aprofundirà en XML i la unitat 4, en la validació amb contractes.
+    ---
 
-### JSON: objectes, arrays i valors tipats
+    [Obri `primera-pagina.html`](../assets/unitat-0/primera-pagina.html) i comprova que coincidix amb el bloc anterior.
 
-JSON representa dades amb objectes `{}`, arrays `[]`, nombres, cadenes, booleans i `null`.
+-   **Compara el resultat esperat**
 
-```json title="catalog.json"
-{
-  "currency": "EUR",
-  "products": [
-    {
-      "code": "P-001",
-      "name": "Teclat USB",
-      "price": 24.90,
-      "available": true
-    }
-  ]
-}
-```
+    ---
 
-Les claus van entre cometes dobles. `products` conté un array i `price` és un nombre, no una cadena.
+    [Veu el resultat de la pàgina (SVG)](../assets/unitat-0/primera-pagina.svg). Hauries de veure un títol, un paràgraf i dos elements de llista.
 
-### YAML: jerarquia basada en la indentació
+</div>
 
-YAML també serialitza dades. És freqüent en configuració perquè pot resultar llegible quan la jerarquia és moderada.
+![Resultat esperat: el títol «Catàleg de l’aula», el paràgraf «Materials per a començar.» i una llista amb «Quadern» i «Retolador».](../assets/unitat-0/primera-pagina.svg)
 
-```yaml title="catalog.yaml"
-currency: EUR
-products:
-  - code: P-001
-    name: Teclat USB
-    price: 24.90
-    available: true
-```
+**Observa també la pestanya:** ha de dir «El meu primer catàleg». Este text no apareix dins de la pàgina.
 
-Els espais inicials indiquen dependència i els guions introduïxen elements d'una seqüència. No uses tabuladors per indentar YAML.
+### Pràctica guiada: canvia, guarda i recarrega
 
-### TOML: configuració explícita
+Ara comprovaràs el cicle bàsic de treball, sense escriure cap element nou.
 
-TOML està orientat a fitxers de configuració previsibles. Les dobles claus quadrades creen elements repetits dins d'una llista de taules.
+1. En l'editor, substituïx només `Quadern` per `Carpeta`.
+2. Guarda el fitxer.
+3. Torna al navegador i usa el botó **Recarrega**.
+4. Comprova que la llista diu «Carpeta» i «Retolador».
 
-```toml title="catalog.toml"
-currency = "EUR"
+**Resultat observable:** veus el canvi en el navegador. **Criteri d'èxit:** pots explicar que l'editor modifica el fitxer, guardar actualitza el fitxer al disc i recarregar fa que el navegador el torne a llegir.
 
-[[products]]
-code = "P-001"
-name = "Teclat USB"
-price = 24.90
-available = true
-```
+!!! tip "Dos accions diferents"
+    **Guardar** no actualitza automàticament el que ja està obert al navegador. **Recarregar** no guarda el que encara està pendent a l'editor. Normalment necessites fer les dues coses.
 
-### Markdown: documentació llegible en brut
+### Llig el primer exemple
 
-Markdown dona estructura a documentació de text pla. Un renderitzador transforma els marcadors en encapçalaments, llistes o èmfasi.
+Una **etiqueta** és una marca d'HTML, com `<p>`. En molts elements hi ha una etiqueta d'obertura, contingut i una etiqueta de tancament amb una barra: `<p>Materials per a començar.</p>`. El conjunt forma un **element HTML**.
 
-```markdown title="catalog.md"
-# Catàleg
+[Obri el diagrama d'una etiqueta HTML (SVG)](../assets/unitat-0/etiqueta-html.svg).
 
-**Moneda:** EUR
+![Diagrama textual d'un paràgraf HTML: «p» obri l'etiqueta `<p>`, el contingut és «Materials per a començar.» i `</p>` és l'etiqueta de tancament.](../assets/unitat-0/etiqueta-html.svg)
 
-## Teclat USB
+| Peça | Funció en este exemple |
+|---|---|
+| `<!doctype html>` | Indica que el document usa HTML actual. |
+| `<head>` | Agrupa informació sobre la pàgina, com el text de la pestanya. |
+| `<title>` | Dona nom a la pestanya del navegador. |
+| `<body>` | Conté el contingut que veiem en la pàgina. |
+| `<h1>` | Marca el títol principal. |
+| `<p>` | Marca un paràgraf. |
+| `<ul>` i `<li>` | Formen una llista sense numeració i cadascun dels seus elements. |
 
-- Codi: `P-001`
-- Preu: 24,90 €
-- Disponible: sí
-```
+No cal memoritzar estes etiquetes hui. Només relaciona cada marca amb el que veus. Els espais al principi de les línies ajuden a llegir el codi; no són una manera de col·locar elements a la pantalla.
 
-Markdown comunica bé el catàleg a una persona, però no conserva necessàriament els mateixos tipus i relacions que JSON, YAML o TOML.
+## Continuem la unitat: estructura, aparença i fitxers
 
-### Comparació inicial
+### Estructura no és aparença
 
-| Format | Família principal en este exemple | Consumidor habitual | Pista visual | Atenció |
-|---|---|---|---|---|
-| **HTML** | marques per a documents web | navegador i tecnologies web | elements predefinits | estructura i aparença no són el mateix |
-| **XML** | marques i serialització | aplicació o sistema documental | etiquetes pròpies | sintaxi estricta i més verbosa |
-| **JSON** | serialització | API o aplicació | claus, objectes i arrays | no admet comentaris en l'estàndard JSON |
-| **YAML** | serialització i configuració | eines de desplegament i automatització | indentació | un canvi d'espais pot alterar la jerarquia |
-| **TOML** | configuració | eina que espera eixe contracte | parelles clau-valor i taules | no substituïx un format exigit per l'eina |
-| **Markdown** | text lleuger | persones i renderitzadors de documentació | `#`, llistes i èmfasi | hi ha dialectes; CommonMark fixa una base comuna |
+L'element `<h1>` diu que un text és el títol principal: això és estructura. Que es veja gran i en negreta és l'aparença que el navegador aplica per defecte. **CSS** és el llenguatge que usarem més avant per decidir l'aparença; encara no l'hem afegit.
 
-!!! info "No hi ha un format universalment millor"
-    Els formats conviuen perquè resolen problemes diferents. Una aplicació web pot usar HTML per a la pàgina, JSON per a dades, YAML per a automatització, TOML per a una eina i Markdown per a la documentació.
+Esta separació és útil professionalment: podem canviar l'aspecte d'un catàleg sense perdre quin text és el títol, el paràgraf o la llista.
 
-## :material-source-branch: 5. Com triar un format
+### Nom, extensió, codificació i text
 
-Comença pel **consumidor**, és a dir, la persona o el programa que ha de llegir la informació. Després valora estos criteris:
+La **codificació** és la regla que relaciona caràcters i les dades guardades en un fitxer. Guardar en UTF-8 i declarar `<meta charset="UTF-8">` ajuda que l'editor i el navegador interpreten igual accents i altres caràcters.
 
-1. **Consumidor:** què admet el navegador, l'API, la biblioteca o l'eina?
-2. **Tipus d'informació:** és un document amb text, una col·lecció de dades, una configuració o documentació?
-3. **Estàndard o contracte:** hi ha una especificació, un esquema o una interfície que obliga a usar un format concret?
-4. **Eines disponibles:** podem editar, analitzar, validar i transformar el format de manera fiable?
-5. **Llegibilitat i manteniment:** qui el modificarà i amb quina freqüència?
-6. **Interoperabilitat:** quins sistemes han d'intercanviar la informació sense perdre significat?
-
-![Recorregut de sis passos per triar un format: consumidor, tipus d'informació, estàndard o contracte, eines, llegibilitat i manteniment, i interoperabilitat.](../assets/unitat-0/criteris-eleccio.svg){ role="img" }
-
-*El recorregut ordena les preguntes: primer les restriccions, després la preferència.*
-
-La preferència personal va després del contracte. Si una eina exigix `pyproject.toml`, convertir-lo a YAML perquè ens parega més llegible no resoldrà el problema.
-
-!!! example "Activitat curta 3 · Decidix a partir del consumidor"
-    **Objectiu:** justificar una elecció, no endevinar un «guanyador».
-
-    **Punt de partida:** una pàgina web accessible, una resposta d'una API, la configuració d'una eina i el `README` d'un repositori.
-
-    **Resultat observable:** quatre decisions amb el format principal i una justificació basada en dos criteris de la llista anterior.
-
-    **Comprovació:** cada resposta identifica primer qui o què consumirà el fitxer. Pot haver-hi alternatives correctes si el context les justifica.
-
-## :material-tools: 6. Entorn mínim de treball
-
-No cal usar un sistema operatiu, editor o extensió concrets. Sí que necessitem cobrir cinc funcions:
-
-| Funció | Eina possible | Comprovació mínima |
+| Què revises? | Exemple correcte | Per què importa? |
 |---|---|---|
-| Editar text i codi | qualsevol editor de codi o text pla | guarda en UTF-8 i mostra l'extensió real |
-| Observar documents web | un navegador actual | obri un fitxer local HTML o XML |
-| Executar ordres | terminal del sistema o terminal integrada | mostra la carpeta actual i executa una ordre |
-| Analitzar sintaxi | analitzador de l'editor, Python o un servei de confiança | detecta un error introduït a propòsit |
-| Versionar | Git | `git --version` mostra una versió instal·lada |
+| Nom i extensió | `primera-pagina.html` | El navegador reconeix que ha d'interpretar HTML. |
+| Tipus de contingut | Text pla | Les etiquetes es guarden com a text que el navegador pot llegir. |
+| Codificació | UTF-8 i `charset="UTF-8"` | Els accents es mostren com esperes. |
 
-!!! warning "Editor de text no és processador de textos"
-    Un processador de textos pot afegir format invisible o canviar les cometes. Guarda els exemples com a text pla amb l'extensió indicada, no com a `.docx`, `.odt` o `.rtf`.
+!!! warning "Canviar el nom no transforma el contingut"
+    Reanomenar un fitxer no canvia les seues marques ni les seues regles. Un HTML anomenat `.json` continua contenint HTML i no es convertix en dades JSON.
 
-### Comprova les eines disponibles
+## Diagnòstic inicial: si alguna cosa falla
 
-```bash title="Ordre · Comprovar Git"
-git --version
-```
+Quan el resultat no siga l'esperat, no canvies moltes coses alhora. Compara, prova una causa i torna a observar.
 
-```text title="Eixida d'exemple"
-git version 2.51.0
-```
+| Què observes? | Primera comprovació |
+|---|---|
+| Encara apareix «Quadern». | Has guardat en l'editor i recarregat en el navegador? |
+| El canvi no apareix. | Estàs editant i obrint el mateix fitxer de `unitat-0`? |
+| S'obri l'editor en lloc del navegador. | Usa **Obri amb** i selecciona un navegador. |
+| Veus les etiquetes com a text. | Revisa que el nom no acabe en `.html.txt` i que siga text pla. |
+| Els accents són signes estranys. | Revisa UTF-8 en guardar i `charset="UTF-8"` en el document. |
+| La llista o un text falta. | Compara amb el model: pot faltar un `<`, un `>` o un tancament. |
 
-El número pot ser diferent. Si l'ordre no existix, instal·la Git des de la documentació oficial o seguix el procediment del centre.
+!!! note "Una pàgina visible pot tindre errors"
+    Els navegadors intenten mostrar HTML encara que hi haja errors. En esta unitat, compara amb el model i descriu què observes. Més avant utilitzarem eines per comprovar les regles del document.
 
-Per analitzar XML i JSON usarem només la biblioteca estàndard de Python. Prova una d'estes ordres:
+Per demanar ajuda, indica **què volies veure, què veus i què ja has provat**. Per exemple: «He canviat Quadern per Carpeta, he guardat i he recarregat, però potser estic obrint un altre fitxer».
 
-```bash title="Ordre · Comprovar Python"
-python3 --version
-```
+## Panorama de formats: reconéixer, no dominar
 
-```text title="Eixida d'exemple"
-Python 3.13.7
-```
+Un **format** indica com s'organitza la informació dins d'un fitxer. La **sintaxi** són les regles concretes per escriure eixe format. Ara no has d'escriure JSON, YAML ni XML: només has de reconéixer usos habituals.
 
-- En molts sistemes GNU/Linux i macOS l'ordre és `python3`.
-- En Windows pot ser `python` o `py -3`.
-- Tria l'ordre que mostre Python 3 i substituïx `python3` per eixa forma en els exemples següents.
-
-Els números de versió mostrats són eixides d'exemple, no requisits mínims de la unitat.
-
-### Analitzar no sempre és validar
-
-Un **analitzador sintàctic** o *parser* llig el text segons les regles del format i intenta construir-ne l'estructura. Un **validador** comprova, a més, si el document complix un contracte determinat.
-
-En XML cal distingir:
-
-- **XML ben format:** complix les regles sintàctiques d'XML; té una única arrel, etiquetes ben niades i atributs entre cometes, entre altres condicions.
-- **XML vàlid:** és ben format i, a més, complix una gramàtica o un esquema concret, com ara DTD o XSD.
-
-En esta unitat només comprovarem que l'XML està **ben format**. Encara no tenim cap esquema contra el qual validar-lo.
-
-En JSON també cal un matís. L'RFC 8259 no admet els valors numèrics especials `NaN`, `Infinity` ni `-Infinity`. El descodificador `json.loads()` de Python els accepta per defecte com una extensió. Per fer una comprovació estricta usarem el paràmetre `parse_constant`: quan trobe una d'eixes constants, la funció configurada provocarà un error.
-
-La part que comença per `reject =` és un mecanisme compacte per generar eixe error sense instal·lar cap paquet. No cal memoritzar-la: copia l'ordre completa i canvia només la ruta del fitxer quan corresponga.
-
-Per a HTML pots usar el navegador durant l'edició i, quan calga comprovar conformitat, el [Nu HTML Checker](https://validator.w3.org/nu/). Per a XML, JSON, YAML o TOML pots usar un analitzador local, el suport de l'editor o una eina web de confiança.
-
-!!! danger "No puges informació sensible a un validador web"
-    No compartisques contrasenyes, tokens, claus d'API, dades personals ni configuracions reals. Per a les pràctiques usa sempre dades fictícies.
-
-## :material-folder-outline: 7. Organització, noms i rutes
-
-Una estructura previsible facilita que una altra persona execute les mateixes comprovacions.
-
-### Convencions inicials
-
-- usa noms curts i descriptius: `catalog.json`, no `cosafinal2.json`;
-- usa minúscules i guions en carpetes: `unitat-0-cataleg`;
-- evita espais, accents i símbols en noms que s'usaran des de la terminal;
-- conserva l'extensió que correspon al contingut;
-- no dupliques el mateix fitxer amb noms com `final`, `final-bo` i `final-definitiu`: usa Git per conservar versions;
-- mantín `README.md` com a excepció convencional fàcil de reconéixer.
-
-Un projecte menut pot començar així:
-
-```text title="Arbre del projecte"
-unitat-0-cataleg/
-├── README.md
-├── catalog.json
-└── catalog.xml
-```
-
-L'arbre és text: la carpeta arrel conté un document d'instruccions i dues representacions del catàleg. Si el projecte cresquera, podríem moure les dades a una carpeta `data/`, però ara afegiria navegació sense aportar claredat.
-
-### Rutes relatives
-
-Una **ruta relativa** indica on està un recurs a partir de la ubicació actual. No depén del nom de la carpeta personal ni del disc de l'equip.
-
-En esta estructura, des de `README.md`:
-
-- `catalog.json` apunta al JSON de la mateixa carpeta;
-- `./catalog.xml` també apunta a un fitxer de la mateixa carpeta;
-- si `README.md` estiguera dins de `docs/`, `../catalog.json` pujaria un nivell i buscaria el JSON.
-
-Evita documentar rutes absolutes com `/Users/nom/projecte/catalog.json` o `C:\Users\nom\projecte\catalog.json`: només funcionen en un equip concret i poden revelar informació privada.
-
-## :material-play-circle-outline: 8. Exemple guiat: el primer catàleg versionat
-
-Crearem el projecte complet pas a pas. Escriu els fitxers amb l'editor; usa la terminal per crear la carpeta, comprovar la sintaxi i treballar amb Git.
-
-### Pas 1. Crea i obri la carpeta
-
-Les ordres `mkdir` i `cd` estan disponibles en els terminals habituals de Windows, macOS i GNU/Linux.
-
-```bash title="Ordres · Crear la carpeta de treball"
-mkdir unitat-0-cataleg
-cd unitat-0-cataleg
-```
-
-Obri `unitat-0-cataleg` amb el teu editor. Comprova que els fitxers nous es guardaran dins d'eixa carpeta.
-
-### Pas 2. Crea la representació XML
-
-Crea `catalog.xml` amb este contingut:
-
-```xml title="catalog.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog currency="EUR">
-  <product code="P-001">
-    <name>Teclat USB</name>
-    <price>24.90</price>
-    <available>true</available>
-  </product>
-  <product code="P-002">
-    <name>Ratolí òptic</name>
-    <price>18.50</price>
-    <available>false</available>
-  </product>
-</catalog>
-```
-
-**Decisions preses:**
-
-- `catalog` és l'única arrel i agrupa els productes;
-- la moneda és comuna al catàleg i s'expressa una sola vegada;
-- cada `product` té la mateixa estructura;
-- `code` identifica el producte dins de l'exemple;
-- els preus usen punt decimal per mantindre una representació tècnica consistent.
-
-### Pas 3. Representa la mateixa informació en JSON
-
-Crea `catalog.json`:
-
-```json title="catalog.json"
-{
-  "currency": "EUR",
-  "products": [
-    {
-      "code": "P-001",
-      "name": "Teclat USB",
-      "price": 24.90,
-      "available": true
-    },
-    {
-      "code": "P-002",
-      "name": "Ratolí òptic",
-      "price": 18.50,
-      "available": false
-    }
-  ]
-}
-```
-
-El model conceptual és el mateix, però no totes les peces tenen una traducció caràcter per caràcter. L'atribut XML `currency` passa a ser una clau JSON i els elements `product` passen a ser objectes d'un array.
-
-### Pas 4. Comprova els dos fitxers
-
-Executa les ordres des de `unitat-0-cataleg`:
-
-```bash title="Ordre · Comprovar que l'XML està ben format"
-python3 -c "import xml.etree.ElementTree as ET; ET.parse('catalog.xml'); print('XML ben format')"
-```
-
-```text title="Eixida esperada"
-XML ben format
-```
-
-Esta ordre analitza la sintaxi. No afirma que el document siga vàlid contra un esquema.
-
-```bash title="Ordre · Comprovar JSON de manera estricta"
-python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('catalog.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-```
-
-```text title="Eixida esperada"
-JSON conforme a RFC 8259
-```
-
-Si uses `python` o `py -3`, canvia només el nom inicial de l'ordre. Si no tens Python disponible, usa un analitzador integrat en l'editor o una eina local equivalent i anota exactament quina has usat.
-
-#### Prova negativa: comprova que `NaN` es rebutja
-
-Crea temporalment `catalog-nan.json`:
-
-```json title="catalog-nan.json · Exemple deliberadament no conforme"
-{
-  "price": NaN
-}
-```
-
-Executa la mateixa comprovació estricta sobre el fitxer:
-
-```bash title="Ordre · Prova negativa JSON"
-python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('catalog-nan.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-```
-
-La prova és correcta si l'ordre acaba amb codi d'eixida diferent de zero i l'última línia informa del valor rebutjat:
-
-```text title="Última línia esperada de l'error"
-ValueError: Constant JSON no permesa: NaN
-```
-
-No ha d'aparéixer el missatge `JSON conforme a RFC 8259`. Elimina `catalog-nan.json` amb l'editor després de verificar la prova; és un fitxer incorrecte creat només per confirmar que l'analitzador detecta eixe cas.
-
-### Pas 5. Documenta el projecte
-
-Crea `README.md`:
-
-```markdown title="README.md"
-# Catàleg inicial
-
-Exemple fictici de la unitat 0.
-
-## Fitxers
-
-- `catalog.xml`: catàleg expressat amb marques XML.
-- `catalog.json`: les mateixes dades serialitzades com a JSON.
-
-## Comprovacions
-
-- XML: analitzat amb `xml.etree.ElementTree` de Python.
-- JSON: analitzat amb el mòdul `json` de Python i rebuig explícit de constants no admeses per l'RFC 8259.
-```
-
-El `README` explica què trobarà una persona que arribe al projecte i amb quines eines s'ha comprovat.
-
-### Pas 6. Inicia Git i registra el primer canvi
-
-Un **repositori Git** és una carpeta en què Git registra l'historial. Un **commit** és una instantània identificada i descrita dels canvis preparats.
-
-```bash title="Ordre · Iniciar el repositori"
-git init
-```
-
-El missatge exacte depén de la versió, l'idioma i el nom de la branca inicial. Ara consulta l'estat:
-
-```bash title="Ordre · Consultar l'estat"
-git status --short
-```
-
-```text title="Eixida esperada"
-?? README.md
-?? catalog.json
-?? catalog.xml
-```
-
-`??` indica que Git encara no seguix eixos fitxers. Prepara'ls i revisa de nou:
-
-```bash title="Ordres · Preparar i revisar els fitxers"
-git add README.md catalog.json catalog.xml
-git status --short
-```
-
-```text title="Eixida esperada"
-A  README.md
-A  catalog.json
-A  catalog.xml
-```
-
-`A` indica que els fitxers estan preparats per al pròxim commit. Registra'ls:
-
-```bash title="Ordre · Crear el primer commit"
-git commit -m "Afig catàleg inicial"
-```
-
-El resum que mostra `git commit` pot variar. Comprova l'últim registre amb una altra ordre:
-
-```bash title="Ordre · Consultar l'últim commit"
-git log --oneline -1
-```
-
-```text title="Eixida d'exemple"
-7c91d4e Afig catàleg inicial
-```
-
-El teu identificador hexadecimal serà diferent de `7c91d4e`. El text del missatge ha de coincidir.
-
-Si Git indica que no coneix la teua identitat, configura només este repositori amb les dades o el pseudònim autoritzats pel centre:
-
-```bash title="Ordres · Configuració local només si Git la demana"
-git config user.name "Estudiant DAW"
-git config user.email "estudiant@example.invalid"
-```
-
-Després repetix `git commit`. El domini reservat `.invalid` evita presentar l'adreça de l'exemple com si fora real. No faces `push`: en esta unitat el repositori és local.
-
-### Resultat observable de l'exemple
-
-Has acabat quan:
-
-- els tres fitxers apareixen dins de `unitat-0-cataleg`;
-- les comprovacions positives d'XML i JSON acaben sense error;
-- la prova negativa rebutja `NaN` i no mostra el missatge d'èxit;
-- `git status --short` no mostra canvis després del commit;
-- `git log --oneline -1` mostra `Afig catàleg inicial`.
-
-## :material-bug-outline: 9. Diagnòstic d'errors reproduïbles
-
-Un missatge d'error és una dada del diagnòstic, no una valoració del teu treball.
-
-### Cicle de diagnòstic
-
-1. **Reproduïx** el problema amb l'ordre exacta.
-2. **Llig el primer error** complet. Els errors posteriors poden ser conseqüències del primer.
-3. **Localitza** el fitxer, la línia i la columna si apareixen.
-4. **Canvia una sola cosa.** Si en canvies cinc, no sabràs quina resolia el problema.
-5. **Repetix la mateixa prova** i compara l'eixida.
-6. **Registra** què esperaves, què ha passat i què has intentat.
-
-![Cicle de diagnòstic en sis passos: reproduïx, llig el primer error, localitza, canvia una cosa, repetix i registra.](../assets/unitat-0/cicle-diagnostic.svg){ role="img" }
-
-*Registrar el resultat tanca cada intent i permet començar-ne un altre de reproduïble.*
-
-| Símptoma | Causa habitual | Primera comprovació |
+| Format | Ús habitual | Idea clau per ara |
 |---|---|---|
-| XML informa d'una etiqueta no coincident | obertura i tancament tenen noms diferents o estan mal niats | revisa des de la línia indicada cap amunt |
-| XML informa de més d'una arrel | hi ha dos elements principals al mateix nivell | envolta el contingut amb una única arrel adequada |
-| JSON espera una coma o un delimitador | falta una coma, sobra una coma final o no es tanca una estructura | revisa el caràcter anterior a la posició indicada |
-| YAML canvia de jerarquia | indentació inconsistent | mostra espais i compara els nivells germans |
-| Git no inclou un canvi | el fitxer no està preparat o està ignorat | executa `git status --short` abans del commit |
+| **HTML** (`.html`) | Pàgines web. | Marca parts com títols, paràgrafs i llistes. |
+| **XML** (`.xml`) | Documents i intercanvi de dades. | Usa marques amb noms adaptats a la informació. |
+| **JSON** (`.json`) | Dades entre aplicacions. | Representa dades; no descriu per si mateix una pàgina web. |
+| **YAML** (`.yaml` o `.yml`) | Configuració d'eines. | Els espais inicials poden tindre significat. |
+| **TOML** (`.toml`) | Configuració d'eines. | Relaciona noms d'opcions amb valors. |
+| **Markdown** (`.md`) | Apunts i instruccions en text. | Usa marques senzilles, com `#` per a un títol. |
 
-### Registre mínim
+**Com decideixes?** Pensa qui llegirà el fitxer i què necessita: un navegador que ha de mostrar un catàleg necessita HTML; una aplicació que demana JSON necessita JSON. L'extensió sola no fa la conversió.
 
-```text title="Plantilla per a diagnostic.md"
-Objectiu: reproduir i reparar l'error de proves/catalog-error.json.
-Ordre de reproducció: python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('proves/catalog-error.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-Esperava: l'ordre havia de fallar perquè falta una coma necessària.
-He obtingut: copia ací el primer error complet que mostra el teu analitzador.
-Intent 1: he copiat el fitxer com a proves/catalog-reparat.json i he restaurat la coma només en la còpia reparada.
-Ordre final: python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('proves/catalog-reparat.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-Resultat final: JSON conforme a RFC 8259.
-```
+### Activitat de reconeixement
 
-Per demanar ajuda, afig també l'eina i el context necessari. No compartisques captures retallades si pots copiar el text. Tens una plantilla més general en [Com demanar ajuda tècnica](../guia/index.md#com-demanar-ajuda-tecnica).
+Tria un format i justifica cada decisió amb una frase:
 
-!!! danger "Revisa abans de compartir"
-    Elimina contrasenyes, tokens, claus, noms personals, rutes privades i dades reals. Substituïx-los per valors ficticis que encara permeten reproduir l'error.
+1. Mostrar un títol i una llista en una pàgina web.
+2. Enviar una llista de materials a una aplicació que demana explícitament JSON.
+3. Escriure instruccions breus en text amb títols i llistes.
 
-## :material-school-outline: 10. Pràctica graduada
+??? success "Orientació per contrastar"
+    1. **HTML**, perquè el navegador interpreta les marques d'una pàgina web.
+    2. **JSON**, perquè és el format que l'aplicació ha indicat.
+    3. **Markdown** és adequat per a instruccions senzilles en text. La raó és l'ús, no una preferència personal.
 
-### Pràctica autònoma · Trenca, diagnostica i repara
+## Minirepte: una pàgina per a un taller fictici
 
-**Objectiu:** aplicar un cicle de diagnòstic controlat.
+**Objectiu:** adaptar l'exemple perquè una altra persona puga llegir els materials d'una activitat fictícia.
 
-**Punt de partida:** el projecte complet de l'exemple guiat.
+**Punt de partida:** la teua `primera-pagina.html`, que ja has obert i modificat.
 
-**Què has de fer:**
+1. Usa **Guarda com** per crear `taller.html` dins de `unitat-0`.
+2. Tria una activitat fictícia, com preparar una exposició o construir una maqueta.
+3. Canvia el títol de la pestanya, el títol principal i el paràgraf perquè descriguen l'activitat.
+4. Substituïx la llista per tres materials adequats a l'activitat. No uses dades personals ni informació real de l'alumnat.
+5. Guarda, obri `taller.html` al navegador i recarrega.
 
-1. Crea una carpeta `proves/` amb l'editor.
-2. Guarda una còpia de `catalog.xml` com a `proves/catalog-error.xml` i canvia el primer `</name>` per `</nom>`. No repares este fitxer.
-3. Executa l'ordre de reproducció XML i copia el primer error complet en `diagnostic.md`.
-4. Duplica el fitxer erroni com a `proves/catalog-reparat.xml`. Canvia només `</nom>` per `</name>` en la còpia reparada i comprova-la.
-5. Guarda una còpia de `catalog.json` com a `proves/catalog-error.json` i elimina la coma situada després de `"currency": "EUR"`. No repares este fitxer.
-6. Executa l'ordre de reproducció JSON i copia el primer error complet en `diagnostic.md`.
-7. Duplica el fitxer erroni com a `proves/catalog-reparat.json`. Restaura només la coma en la còpia reparada i comprova-la.
-8. Completa els dos registres de `diagnostic.md` amb l'objectiu, l'ordre exacta de reproducció, el resultat esperat, el primer error complet, el canvi únic, l'ordre final i el resultat final.
-
-Executa cada ordre d'error per separat. Les dues han de fallar:
-
-```bash title="Ordre · Reproduir l'error XML"
-python3 -c "import xml.etree.ElementTree as ET; ET.parse('proves/catalog-error.xml'); print('XML ben format')"
-```
-
-```bash title="Ordre · Reproduir l'error JSON"
-python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('proves/catalog-error.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-```
-
-Les còpies reparades han de superar les comprovacions:
-
-```bash title="Ordre · Comprovar l'XML reparat"
-python3 -c "import xml.etree.ElementTree as ET; ET.parse('proves/catalog-reparat.xml'); print('XML ben format')"
-```
-
-```text title="Eixida esperada"
-XML ben format
-```
-
-```bash title="Ordre · Comprovar el JSON reparat"
-python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('proves/catalog-reparat.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-```
-
-```text title="Eixida esperada"
-JSON conforme a RFC 8259
-```
-
-**Resultat observable:** es poden reproduir dos errors amb els fitxers `catalog-error.*`, mentre que les còpies `catalog-reparat.*` superen les comprovacions. `diagnostic.md` conté l'ordre exacta i el primer error complet de cada cas.
-
-**Què has de lliurar:** `diagnostic.md` i la carpeta `proves/` amb els quatre fitxers: els dos erronis i els dos reparats.
+**Resultat observable:** una pàgina local amb un títol principal, un paràgraf i tres elements de llista, sense etiquetes visibles com a text.
 
 **Criteris d'èxit:**
 
-- els dos fitxers `catalog-error.*` es conserven sense reparar i continuen provocant l'error descrit;
-- els dos fitxers `catalog-reparat.*` superen la comprovació corresponent;
-- has guardat el primer error complet de cada prova;
-- cada intent descriu un sol canvi;
-- cada registre inclou l'ordre exacta amb la ruta del fitxer erroni i l'ordre final amb la ruta del reparat;
-- el resultat final es pot repetir des de l'arrel del projecte;
-- no has incorporat dades personals ni secrets.
+- [ ] El fitxer és `taller.html`, no `taller.html.txt`.
+- [ ] El títol de la pestanya i el títol de la pàgina no tenen per què ser iguals, però identifiquen l'activitat.
+- [ ] Hi ha tres materials coherents amb l'activitat fictícia.
+- [ ] Els accents es veuen correctament.
+- [ ] Has guardat i recarregat després de l'últim canvi.
+- [ ] Pots explicar un canvi que hages comprovat.
 
-## :material-trophy-outline: 11. Minirepte final · Un catàleg en dos formats
+??? tip "Si necessites una pista"
+    No canvies els noms de les etiquetes. Canvia només el text entre `title`, `h1`, `p` i cada parella `li`.
 
-### Encàrrec
+## Autoavaluació
 
-Una aplicació interna necessita intercanviar un catàleg fictici. Modela la mateixa informació en XML i JSON, justifica les decisions i deixa una prova reproduïble.
+Intenta respondre sense mirar els apartats anteriors. Després desplega les respostes i torna al punt que necessites repassar.
 
-**Objectiu:** construir dues representacions coherents, comprovables i versionades d'un mateix model.
+1. Quines dues eines has usat per crear i veure una pàgina?
+2. Quina diferència hi ha entre estructura i aparença?
+3. Què fa `title` i què fa `h1`?
+4. Has canviat un material, però el navegador encara mostra l'anterior. Quines dues accions comprovaries primer?
+5. Què revisaries si el fitxer es diu `taller.html.txt`?
+6. Per què convé usar UTF-8 en guardar i en la declaració HTML?
+7. Si una aplicació demana JSON, basta canviar `.html` per `.json`?
 
-**Punt de partida:** les decisions i les ordres de l'exemple guiat; no es proporcionen fitxers inicials.
+??? success "Respostes breus"
+    1. Un editor de text pla per escriure i guardar, i un navegador per interpretar i mostrar HTML.
+    2. L'estructura identifica la funció de cada part; l'aparença és com es veu.
+    3. `title` dona nom a la pestanya; `h1` és el títol principal dins de la pàgina.
+    4. Guardar en l'editor i recarregar en el navegador. Després, comprovaria que és el mateix fitxer.
+    5. El nom complet i el tipus de guardat: ha de ser text pla amb extensió `.html`, sense `.txt` final.
+    6. Perquè l'editor guarde i el navegador llija igual els caràcters, inclosos els accents.
+    7. No. Canviar l'extensió no transforma el contingut ni les seues regles.
 
-**Resultat observable:** una altra persona pot obrir el projecte, identificar la mateixa informació en els dos formats i repetir les comprovacions descrites en `README.md`.
+## Resum operatiu i continuació
 
-### Què has de crear
+**Organitzar → marcar → guardar → obrir → recarregar → comparar.**
 
-Crea una carpeta `minirepte-cataleg/` amb:
+- HTML identifica la funció del contingut; encara no hem decidit el disseny.
+- L'editor modifica el fitxer i el navegador en mostra el resultat.
+- El nom, l'extensió, el text pla i UTF-8 són comprovacions útils quan alguna cosa falla.
+- Els formats tenen usos diferents; primer cal identificar qui llegirà la informació i per a què.
 
-```text title="Estructura que has de crear"
-minirepte-cataleg/
-├── README.md
-├── catalog.json
-└── catalog.xml
-```
+En la [unitat 1: HTML semàntic i accessible](01-html-semantic.md) ampliarem esta base per crear documents web més complets i accessibles.
 
-El catàleg ha de tindre:
+### Recursos per continuar
 
-- moneda comuna `EUR`;
-- tres productes ficticis;
-- per a cada producte: codi únic, nom, preu positiu, disponibilitat i una o més categories;
-- exactament la mateixa informació en XML i JSON.
-
-No copies els dos productes de l'exemple com a resposta completa. Pots conservar el model i ampliar-lo amb dades fictícies pròpies.
-
-En `README.md` documenta:
-
-1. qui consumirà els fitxers en l'escenari imaginat;
-2. com has representat la llista de productes i les categories en cada format;
-3. les ordres exactes de comprovació;
-4. el resultat obtingut;
-5. una diferència rellevant entre les dues representacions;
-6. el resultat de la revisió manual del model.
-
-Inicia Git dins de `minirepte-cataleg` i registra els tres fitxers amb un missatge de commit descriptiu.
-
-### Què has de lliurar
-
-Lliura la carpeta o el repositori pel canal que indique el centre, amb `README.md`, `catalog.xml` i `catalog.json`. Conserva el repositori Git local perquè es puga comprovar l'historial.
-
-No inclogues carpetes de l'editor, credencials, dades personals ni fitxers aliens a l'encàrrec.
-
-### Comprovacions obligatòries
-
-#### Comprovacions automàtiques
-
-Executa estes ordres des de `minirepte-cataleg` abans de crear el commit:
-
-```bash title="Ordre · Comprovar la sintaxi XML"
-python3 -c "import xml.etree.ElementTree as ET; ET.parse('catalog.xml'); print('XML ben format')"
-```
-
-```text title="Eixida esperada"
-XML ben format
-```
-
-```bash title="Ordre · Comprovar JSON segons l'RFC 8259"
-python3 -c "import json, pathlib; reject = lambda value: (_ for _ in ()).throw(ValueError('Constant JSON no permesa: ' + value)); json.loads(pathlib.Path('catalog.json').read_text(encoding='utf-8'), parse_constant=reject); print('JSON conforme a RFC 8259')"
-```
-
-```text title="Eixida esperada"
-JSON conforme a RFC 8259
-```
-
-Després del commit, comprova Git:
-
-```bash title="Ordre · Comprovar que no queden canvis pendents"
-git status --short
-```
-
-L'ordre no ha de mostrar cap línia. A continuació, consulta l'últim commit:
-
-```bash title="Ordre · Consultar l'últim commit"
-git log --oneline -1
-```
-
-L'eixida ha de mostrar un identificador hexadecimal seguit del teu missatge de commit.
-
-Estes proves automàtiques detecten problemes sintàctics i d'estat de Git, però no saben si el model complix totes les regles de l'encàrrec.
-
-#### Comprovació manual del model
-
-1. Obri `catalog.xml` i `catalog.json` un al costat de l'altre.
-2. Prepara una fila per producte amb codi, nom, preu, disponibilitat i categories.
-3. Comprova que cada codi apareix una sola vegada en cada fitxer.
-4. Confirma que cada preu és major que zero i que cada producte té almenys una categoria.
-5. Compara camp per camp: moneda, nombre de productes i valors han de coincidir entre XML i JSON.
-6. Anota en `README.md` que has fet esta revisió manual i qualsevol correcció aplicada.
-
-### Llista de control
-
-- [ ] Els noms i les extensions dels fitxers són correctes.
-- [ ] XML té una única arrel i totes les etiquetes estan ben niades.
-- [ ] JSON usa cometes dobles, claus i arrays correctament.
-- [ ] La comprovació automàtica confirma que XML està ben format.
-- [ ] La comprovació automàtica confirma que JSON és conforme a l'RFC 8259, sense `NaN` ni infinits.
-- [ ] La revisió manual confirma que els tres codis són únics i els preus són positius.
-- [ ] La revisió manual confirma que cada producte té almenys una categoria en els dos formats.
-- [ ] La comparació manual camp per camp confirma que XML i JSON contenen la mateixa informació.
-- [ ] `README.md` permet a una altra persona repetir les proves.
-- [ ] `README.md` registra també la comprovació manual del model.
-- [ ] Les ordres de Git mostren almenys un commit descriptiu i cap canvi pendent.
-- [ ] No hi ha secrets ni dades personals.
-
-## :material-check-circle-outline: 12. Autoavaluació
-
-Respon sense consultar els apunts. Després contrasta les respostes amb les orientacions.
-
-1. Quina diferència hi ha entre contingut, estructura, presentació i semàntica?
-2. Per què JSON no és un llenguatge de programació?
-3. Com pot YAML ser alhora serialització i configuració?
-4. Quina diferència hi ha entre un XML ben format i un XML vàlid?
-5. Quin és el primer criteri que hauries de considerar per triar un format?
-6. Des d'un `README.md` situat en `docs/`, quina ruta relativa apuntaria a `catalog.json` situat en la carpeta superior?
-7. Quina diferència pràctica hi ha entre `git add` i `git commit`?
-8. Quins cinc camps mínims inclouries en un informe d'error reproduïble?
-
-### Solucions orientatives breus
-
-1. El contingut és la informació; l'estructura n'organitza les parts; la presentació determina com es mostra; la semàntica expressa què significa.
-2. Perquè representa dades i no incorpora instruccions, funcions ni control de flux.
-3. YAML definix com serialitzar dades i moltes eines usen eixa representació per llegir els seus paràmetres.
-4. Un XML ben format complix la sintaxi; un XML vàlid, a més, complix un esquema o una gramàtica determinats.
-5. El consumidor i el format que este admet o exigix.
-6. `../catalog.json`.
-7. `git add` prepara una versió dels canvis; `git commit` registra una instantània dels canvis preparats en l'historial.
-8. Objectiu, ordre o context exacte, resultat esperat, resultat obtingut i intents fets d'un en un.
-
-Les activitats obertes poden tindre models diferents igualment correctes. Les solucions anteriors no substituïxen la justificació ni la comprovació del teu treball.
-
-## :material-clipboard-check-outline: 13. Resum operatiu
-
-- Estructurar és identificar parts, relacions i significat; no és només donar aparença.
-- HTML i XML són llenguatges de marques, mentre que JSON i YAML s'usen principalment per serialitzar dades.
-- TOML apareix sobretot en configuració i Markdown, en documentació.
-- Les categories se solapen segons l'ús i cap format és universalment millor.
-- Tria a partir del consumidor, el tipus d'informació, el contracte, les eines, la llegibilitat i la interoperabilitat.
-- Usa noms previsibles, rutes relatives i text pla en UTF-8.
-- Comprovar sintaxi no equival sempre a validar contra un contracte.
-- Si analitzes JSON amb Python, usa `parse_constant` per rebutjar `NaN` i els infinits que l'RFC 8259 no admet.
-- En Git, revisa, prepara i registra: `status`, `add`, `commit`.
-- Davant d'un error, llig el primer missatge, canvia una cosa i repetix la prova.
-
-## :material-bookshelf: 14. Fonts tècniques primàries
-
-Fonts consultades el **13 de setembre de 2026**:
-
-- [HTML Living Standard — WHATWG](https://html.spec.whatwg.org/)
-- [Extensible Markup Language (XML) 1.0 — W3C](https://www.w3.org/TR/xml/)
-- [RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format](https://www.rfc-editor.org/rfc/rfc8259)
-- [Python `json`: conformitat amb l'estàndard i interoperabilitat](https://docs.python.org/3/library/json.html#standard-compliance-and-interoperability)
-- [YAML 1.2.2 Specification](https://yaml.org/spec/1.2.2/)
-- [TOML v1.0.0](https://toml.io/en/v1.0.0)
-- [CommonMark Specification](https://spec.commonmark.org/)
-- [Documentació de referència de Git](https://git-scm.com/docs)
-
-## :material-arrow-right-circle-outline: Continuació
-
-Ja tens el vocabulari i el flux de treball inicial. En la [unitat 1: HTML semàntic i accessible](01-html-semantic.md) crearàs documents web complets i comprovaràs que l'estructura comunique significat a persones, navegadors i tecnologies de suport.
+- [MDN: conceptes bàsics d'HTML, en castellà](https://developer.mozilla.org/es/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content): explicacions i exemples per repassar.
+- [HTML Living Standard — WHATWG, en anglés](https://html.spec.whatwg.org/): referència tècnica; no cal llegir-la per completar la unitat.
+- [Itinerari del curs](index.md): situa les pròximes unitats i els formats que treballarem més avant.

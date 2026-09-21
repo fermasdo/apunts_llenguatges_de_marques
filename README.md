@@ -2,7 +2,7 @@
 
 Base tècnica dels apunts del mòdul, publicada amb [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
-El contingut principal està pensat per a l'alumnat. La documentació curricular i la resta de materials de professorat es mantenen en un espai separat i secundari.
+El contingut està pensat per a l'alumnat i s'organitza en unitats, reptes i recursos de consulta.
 
 ## Requisits
 
@@ -49,7 +49,6 @@ pip-compile --generate-hashes --no-emit-index-url --strip-extras requirements.in
 ## Estructura
 
 - `docs/`: font dels apunts i recursos.
-- `docs/professorat/`: material intern o curricular, separat del recorregut principal de l'alumnat.
 - `mkdocs.yml`: navegació, tema i extensions.
 - `requirements.in` i `requirements.txt`: dependències directes i bloqueig reproduïble.
 - `.github/workflows/docs.yml`: validació i publicació en GitHub Pages.
