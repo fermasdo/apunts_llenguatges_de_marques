@@ -2,8 +2,6 @@
 
 En esta unitat, de **quatre setmanes orientatives**, transformaràs una pàgina amb text en un document que explica la funció de cada part. És la base del treball associat a **RA2** en l'[itinerari del curs](index.md): una referència per orientar el treball, no una llista de burocràcia.
 
-[Obri la presentació de la unitat](../presentacions/unitat-1-html/index.html){ .md-button .md-button--primary }
-
 <div class="grid cards" markdown>
 
 -   **Punt de partida**

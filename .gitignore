@@ -10,8 +10,3 @@ __pycache__/
 # Fitxers locals
 .DS_Store
 .cache/
-
-# Dependències i eixides de les presentacions Slidev
-node_modules/
-dist/
-docs/presentacions/

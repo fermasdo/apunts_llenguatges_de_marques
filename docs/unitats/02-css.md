@@ -2,8 +2,6 @@
 
 En esta unitat, de **tres setmanes orientatives**, donaràs una aparença coherent i adaptable al minilloc de la unitat 1. Mantindràs l'HTML semàntic: **CSS decidix com es veu; HTML indica què és cada part**. Esta és una proposta metodològica vinculada a l'[itinerari del curs](index.md), no una temporalització oficial.
 
-[Obri la presentació de la unitat](../presentacions/unitat-2-css/index.html){ .md-button .md-button--primary }
-
 <div class="grid cards" markdown>
 
 -   **Punt de partida**
