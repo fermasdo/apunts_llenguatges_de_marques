@@ -1,0 +1,16 @@
+{
+  "name": "unitat-1-html-slidev",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Presentació Slidev de la unitat 1: HTML semàntic i accessible",
+  "scripts": {
+    "dev": "slidev slides.md --open",
+    "build": "slidev build slides.md --out dist",
+    "build:mkdocs": "node scripts/build-mkdocs.mjs",
+    "export": "slidev export slides.md --output Unitat_1_HTML_semantic_i_accessible.pdf"
+  },
+  "devDependencies": {
+    "@slidev/cli": "53.0.0",
+    "@slidev/theme-default": "0.25.0"
+  }
+}

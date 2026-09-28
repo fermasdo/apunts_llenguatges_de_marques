@@ -2,6 +2,8 @@
 
 En esta unitat, de **quatre setmanes orientatives**, transformaràs una pàgina amb text en un document que explica la funció de cada part. És la base del treball associat a **RA2** en l'[itinerari del curs](index.md): una referència per orientar el treball, no una llista de burocràcia.
 
+[Obri la presentació de la unitat](../presentacions/unitat-1-html/index.html){ .md-button .md-button--primary }
+
 <div class="grid cards" markdown>
 
 -   **Punt de partida**
@@ -217,7 +219,7 @@ Un **formulari** arreplega informació escrita o triada per la persona usuària.
 </form>
 ```
 
-`required` indica que el camp és obligatori. `method="get"` permet observar els valors en una prova: amb `action="#"`, el navegador els afig a l'adreça de la mateixa pàgina, però no els envia a cap servidor. Per això, **no escrigues dades reals**: podrien quedar a la barra d'adreces o a l'historial. El servidor i el tractament segur de dades arribaran en altres contextos.
+`required` indica que el camp és obligatori. `method="get"` permet observar els valors en una prova: amb `action="#"`, el navegador els afig a l'adreça de la mateixa pàgina i fa una petició a eixe recurs. En obrir el fitxer localment no hi ha cap servidor; si la pàgina està publicada, no hi ha cap *backend* configurat per tractar o guardar la consulta. Per això, **no escrigues dades reals**: podrien quedar a la barra d'adreces o a l'historial. El servidor i el tractament segur de dades arribaran en altres contextos.
 
 ## Accessibilitat: comprovacions abans que decoració
 

@@ -17,6 +17,15 @@ jobs:
       - name: Descarrega el codi
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Configura Node
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: |
+            PRESENTACIONS/unitat-1-html-slidev/package-lock.json
+            PRESENTACIONS/unitat-2-css-slidev/package-lock.json
+
       - name: Configura Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
@@ -28,6 +37,19 @@ jobs:
 
       - name: Comprova les dependències
         run: python -m pip check
+
+      - name: Instal·la les dependències de la presentació HTML
+        run: npm ci
+        working-directory: PRESENTACIONS/unitat-1-html-slidev
+
+      - name: Instal·la les dependències de la presentació CSS
+        run: npm ci
+        working-directory: PRESENTACIONS/unitat-2-css-slidev
+
+      - name: Genera les presentacions per al lloc
+        run: |
+          npm run build:mkdocs --prefix PRESENTACIONS/unitat-1-html-slidev
+          npm run build:mkdocs --prefix PRESENTACIONS/unitat-2-css-slidev
 
       - name: Construeix el lloc
         run: mkdocs build --strict
