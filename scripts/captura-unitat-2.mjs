@@ -1,10 +1,21 @@
 import { chromium } from "playwright";
 
 const output = "docs/assets/unitat-2";
-const base = "";
+const base = `
+  html { background:#e2e8f0; }
+  body { margin:0; min-height:100vh; padding:12px; background:#e2e8f0; }
+  .navegador { overflow:hidden; min-height:calc(100vh - 24px); border:1px solid #94a3b8; border-radius:10px; background:#fff; box-shadow:0 3px 10px rgb(15 23 42 / .16); }
+  .barra-navegador { display:flex; align-items:center; gap:10px; min-height:40px; padding:0 12px; border-bottom:1px solid #cbd5e1; background:#f8fafc; font:13px system-ui,sans-serif; color:#475569; }
+  .controls { display:flex; gap:5px; flex:none; }
+  .controls span { inline-size:10px; block-size:10px; border-radius:50%; background:#f87171; }
+  .controls span:nth-child(2) { background:#fbbf24; }
+  .controls span:nth-child(3) { background:#4ade80; }
+  .adreca { overflow:hidden; min-inline-size:0; padding:4px 10px; border-radius:5px; background:#e2e8f0; white-space:nowrap; text-overflow:ellipsis; }
+  .pagina { min-height:calc(100vh - 66px); background:#fff; }
+`;
 const variables = `:root { --color-fons:#fffdf8; --color-text:#24303a; --color-principal:#075985; --color-superficie:#e0f2fe; --color-focus:#b45309; --espai-1:.5rem; --espai-2:1rem; --espai-3:1.5rem; }`;
 
-const shell = (content, css = "") => `<!doctype html><html lang="ca"><head><meta charset="utf-8"><style>${base}${css}</style></head><body>${content}</body></html>`;
+const shell = (content, css = "") => `<!doctype html><html lang="ca"><head><meta charset="utf-8"><style>${base}${css}</style></head><body><div class="navegador"><div class="barra-navegador"><span class="controls"><span></span><span></span><span></span></span><span class="adreca">taller-riu.local</span></div><div class="pagina">${content}</div></div></body></html>`;
 const header = `<header><p>Taller Riu</p><p>Reparació i manteniment de bicicletes.</p><nav aria-label="Principal"><ul><li><a href="#inici">Inici</a></li><li><a href="#reparacions">Reparacions</a></li><li><a href="#productes">Productes</a></li><li><a href="#contacte">Contacte</a></li></ul></nav></header>`;
 const cards = `<section class="productes" id="productes"><h2>Productes destacats</h2><article><h3>Casc urbà</h3><p>Protecció còmoda per als trajectes diaris.</p><p>Disponibilitat: esgotat</p></article><article><h3>Llum LED</h3><p>Visibilitat per a circular de nit.</p></article><article><h3>Candau</h3><p>Seguretat per a deixar la bicicleta al carrer.</p></article></section>`;
 
