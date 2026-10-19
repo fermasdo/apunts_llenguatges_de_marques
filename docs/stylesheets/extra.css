@@ -1,0 +1,8 @@
+/* Captures de navegador de la unitat 2, amb una mida de lectura confortable. */
+.md-content img.u2-captura {
+  display: block;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: min(100%, 60rem);
+  margin-inline: auto;
+}

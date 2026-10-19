@@ -85,7 +85,7 @@ body {
 !!! note "Com llegir les captures"
     Les captures usen una maqueta complementària, «Taller Riu», per fer visibles els efectes de cada regla. En Flexbox incorpora quatre enllaços i en Grid tres fitxes perquè es veja l'adaptació. El teu punt de partida continua sent el catàleg «Núvol de paper» de la unitat 1: aplica-hi les mateixes regles sense haver de reproduir estes paraules ni este nombre d'elements.
 
-![Captura del navegador amb el minilloc del Taller Riu: el text usa una tipografia de sistema, un gris fosc i més espai entre línies.](../assets/unitat-2/01-full-extern.svg)
+![Captura del navegador amb el minilloc del Taller Riu: el text usa una tipografia de sistema, un gris fosc i més espai entre línies.](../assets/unitat-2/01-full-extern.webp){ .u2-captura }
 
 Guarda, recarrega les dos pàgines i comprova el canvi. Una regla es llig així:
 
@@ -115,7 +115,7 @@ La **cascada** resol quina regla s'aplica quan més d'una afecta la mateixa prop
 2. Si tenen la mateixa concreció, guanya la que apareix més tard.
 3. Algunes propietats de text, com `color` i `font-family`, s'**hereten** dels elements pare; `margin`, `border` i `background` no.
 
-??? example "Mostra el CSS de la cascada (15 línies)"
+??? example "Mostra el CSS de la cascada (19 línies)"
     ```css linenums="1"
     body {
       color: #24303a;
@@ -129,12 +129,16 @@ La **cascada** resol quina regla s'aplica quan més d'una afecta la mateixa prop
       color: #ffffff;
     }
 
+    nav {
+      background-color: #075985;
+    }
+
     .enllac-destacat {
       color: #7c2d12;
     }
     ```
 
-![Captura del navegador: els enllaços del menú blau són blancs, l'enllaç general és blau i l'enllaç destacat té un color diferent.](../assets/unitat-2/02-cascada.svg)
+![Captura del navegador: els enllaços del menú blau són blancs, l'enllaç general és blau i l'enllaç destacat té un color diferent.](../assets/unitat-2/02-cascada.webp){ .u2-captura }
 
 | Selector | A què s'aplica | Idea clau |
 |---|---|---|
@@ -177,11 +181,11 @@ Les **propietats personalitzades** de CSS són noms reutilitzables de valors. De
     }
     ```
 
-![Captura del navegador d'una pàgina amb fons crema, text fosc, títol blau i una superfície blau clar: les variables creen una paleta coherent.](../assets/unitat-2/03-variables.svg)
+![Captura del navegador després de declarar les propietats personalitzades: encara conserva l'aparença inicial perquè les variables no s'han aplicat a cap propietat.](../assets/unitat-2/03-variables.webp){ .u2-captura }
 
 `rem` és una unitat relativa a la mida de lletra arrel del navegador. Per això, els espais definits amb `rem` acompanyen millor les preferències de mida de text que una mesura fixa en píxels.
 
-??? example "Mostra la tipografia, el fons i els enllaços (17 línies)"
+??? example "Mostra la tipografia, el fons i els enllaços (18 línies)"
     ```css linenums="1"
     body {
       margin: 0;
@@ -194,6 +198,7 @@ Les **propietats personalitzades** de CSS són noms reutilitzables de valors. De
     h1,
     h2,
     h3 {
+      color: var(--color-principal);
       line-height: 1.2;
     }
 
@@ -202,7 +207,7 @@ Les **propietats personalitzades** de CSS són noms reutilitzables de valors. De
     }
     ```
 
-![Captura del navegador amb una jerarquia clara: títol blau, text fosc amb interlineat llegible i un enllaç blau sobre fons clar.](../assets/unitat-2/04-tipografia.svg)
+![Captura del navegador amb una jerarquia clara: títol blau, text fosc amb interlineat llegible i un enllaç blau sobre fons clar.](../assets/unitat-2/04-tipografia.webp){ .u2-captura }
 
 La jerarquia visual —mida, pes o color— ajuda a llegir, però no substituïx la jerarquia HTML de `h1`, `h2` i `h3`. Mantín un contrast clar entre text i fons. Si tens connexió, pots comprovar una combinació amb una eina de contrast; en qualsevol cas, llig el text amb llum baixa i amb la pantalla ampliada.
 
@@ -228,11 +233,17 @@ Comença el full amb esta regla:
 * {
   box-sizing: border-box;
 }
+
+.fitxa-prova {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #94a3b8;
+}
 ```
 
-![Captura del navegador a 320 píxels: una fitxa amb vora i espai interior cap dins del marge lateral, sense desplaçament horitzontal.](../assets/unitat-2/05-border-box.svg)
+![Captura del navegador a 320 píxels: una fitxa amb vora i espai interior cap dins del marge lateral, sense desplaçament horitzontal.](../assets/unitat-2/05-border-box.webp){ .u2-captura }
 
-Amb `border-box`, l'amplària declarada inclou el `padding` i la `border`; és més previsible quan la pantalla s'estreny. Afig després un contenidor per al contingut principal:
+La regla `.fitxa-prova` només crea una caixa de prova per observar el resultat. Amb `border-box`, l'amplària declarada inclou el `padding` i la `border`; és més previsible quan la pantalla s'estreny. Afig després un contenidor per al contingut principal:
 
 ```css
 main {
@@ -241,7 +252,7 @@ main {
 }
 ```
 
-![Captura del navegador en pantalla ampla: el contingut queda centrat i la línia de text no ocupa tota l'amplària de la finestra.](../assets/unitat-2/06-amplaria-segura.svg)
+![Captura del navegador en pantalla ampla: el contingut queda centrat i la línia de text no ocupa tota l'amplària de la finestra.](../assets/unitat-2/06-amplaria-segura.webp){ .u2-captura }
 
 `min()` tria el valor més menut: deixa 1 `rem` de marge a cada costat en una pantalla estreta i evita línies excessivament llargues en una pantalla ampla. `margin-inline: auto` centra el bloc en la direcció de lectura.
 
@@ -280,7 +291,7 @@ main {
     }
     ```
 
-![Captura del navegador a 320 píxels: quatre opcions del menú blau es repartixen en dues línies amb una separació regular.](../assets/unitat-2/07-flexbox.svg)
+![Captura del navegador a 320 píxels: quatre opcions del menú blau es repartixen en dues línies amb una separació regular.](../assets/unitat-2/07-flexbox.webp){ .u2-captura }
 
 `flex-wrap: wrap` permet que els enllaços passen a una línia nova si no caben. `gap` crea la separació; no necessites afegir marges diferents a cada enllaç.
 
@@ -309,7 +320,7 @@ main {
     }
     ```
 
-![Captura del navegador en pantalla ampla: el títol de Productes destacats ocupa tota la fila i tres fitxes amb vora s'alineen en columnes.](../assets/unitat-2/08-grid.svg)
+![Captura del navegador en pantalla ampla: el títol de Productes destacats ocupa tota la fila i tres fitxes amb vora s'alineen en columnes.](../assets/unitat-2/08-grid.webp){ .u2-captura }
 
 `minmax(16rem, 1fr)` diu que una fitxa no serà més estreta de `16rem` i que pot créixer si hi ha espai. `auto-fit` calcula quantes columnes caben. Amb una pantalla estreta, les fitxes passen a una columna sense canviar els `article` per `div` ni afegir una media query.
 
@@ -455,7 +466,7 @@ textarea:focus-visible {
 
 </details>
 
-![Captura del navegador del minilloc complet en pantalla ampla: capçalera amb títol i menú, dues fitxes de producte i contingut centrat amb amplària limitada.](../assets/unitat-2/09-estils-complet.svg)
+![Captura del navegador del minilloc complet en pantalla ampla: capçalera amb títol i menú, dues fitxes de producte i contingut centrat amb amplària limitada.](../assets/unitat-2/09-estils-complet.webp){ .u2-captura }
 
 L'única **media query** organitza la capçalera en fila quan hi ha prou espai. La resta de l'adaptació ve d'amplàries fluides, `flex-wrap` i Grid. No ocultes l'enllaç de salt: quan rep focus, el navegador ha de poder mostrar-lo i usar-lo.
 

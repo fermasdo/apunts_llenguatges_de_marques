@@ -8,6 +8,7 @@ El contingut està pensat per a l'alumnat i s'organitza en unitats, reptes i rec
 
 - Python 3.10 o posterior.
 - `pip`.
+- Node.js 20 o posterior, només per regenerar les captures de navegador de la unitat 2.
 
 ## Instal·lació local
 
@@ -51,6 +52,18 @@ La construcció estricta tracta com a errors els avisos de configuració, navega
 python -m pip install pip-tools==7.6.1
 pip-compile --generate-hashes --no-emit-index-url --strip-extras requirements.in
 ```
+
+## Captures de la unitat 2
+
+Les captures reals de CSS es generen amb Chromium i Playwright. Per regenerar-les de forma reproduïble:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run captures:unitat-2
+```
+
+El guió `scripts/captura-unitat-2.mjs` fixa l'amplària i l'altura de cada viewport. Per fer una prova local amb un navegador ja instal·lat, pots definir temporalment `PLAYWRIGHT_EXECUTABLE_PATH`; no és necessari per a la generació habitual.
 
 ## Estructura
 

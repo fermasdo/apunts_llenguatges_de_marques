@@ -10,3 +10,6 @@ __pycache__/
 # Fitxers locals
 .DS_Store
 .cache/
+
+# Dependències de les captures de navegador
+node_modules/
