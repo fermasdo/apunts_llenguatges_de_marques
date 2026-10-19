@@ -82,6 +82,11 @@ body {
 }
 ```
 
+!!! note "Com llegir les captures"
+    Les captures usen una maqueta complementària, «Taller Riu», per fer visibles els efectes de cada regla. En Flexbox incorpora quatre enllaços i en Grid tres fitxes perquè es veja l'adaptació. El teu punt de partida continua sent el catàleg «Núvol de paper» de la unitat 1: aplica-hi les mateixes regles sense haver de reproduir estes paraules ni este nombre d'elements.
+
+![Captura del navegador amb el minilloc del Taller Riu: el text usa una tipografia de sistema, un gris fosc i més espai entre línies.](../assets/unitat-2/01-full-extern.svg)
+
 Guarda, recarrega les dos pàgines i comprova el canvi. Una regla es llig així:
 
 ```text
@@ -110,23 +115,26 @@ La **cascada** resol quina regla s'aplica quan més d'una afecta la mateixa prop
 2. Si tenen la mateixa concreció, guanya la que apareix més tard.
 3. Algunes propietats de text, com `color` i `font-family`, s'**hereten** dels elements pare; `margin`, `border` i `background` no.
 
-```css
-body {
-  color: #24303a;
-}
+??? example "Mostra el CSS de la cascada (15 línies)"
+    ```css linenums="1"
+    body {
+      color: #24303a;
+    }
 
-a {
-  color: #075985;
-}
+    a {
+      color: #075985;
+    }
 
-nav a {
-  color: #ffffff;
-}
+    nav a {
+      color: #ffffff;
+    }
 
-.enllac-destacat {
-  color: #7c2d12;
-}
-```
+    .enllac-destacat {
+      color: #7c2d12;
+    }
+    ```
+
+![Captura del navegador: els enllaços del menú blau són blancs, l'enllaç general és blau i l'enllaç destacat té un color diferent.](../assets/unitat-2/02-cascada.svg)
 
 | Selector | A què s'aplica | Idea clau |
 |---|---|---|
@@ -155,40 +163,46 @@ Amb les regles anteriors, quin color tindrà un enllaç dins de `nav`? **Blanc**
 
 Les **propietats personalitzades** de CSS són noms reutilitzables de valors. Declara un conjunt menut de colors i espais en `:root`, que representa l'element arrel del document:
 
-```css
-:root {
-  --color-fons: #fffdf8;
-  --color-text: #24303a;
-  --color-principal: #075985;
-  --color-superficie: #e0f2fe;
-  --color-focus: #b45309;
-  --espai-1: 0.5rem;
-  --espai-2: 1rem;
-  --espai-3: 1.5rem;
-}
-```
+??? example "Mostra les propietats personalitzades (10 línies)"
+    ```css linenums="1"
+    :root {
+      --color-fons: #fffdf8;
+      --color-text: #24303a;
+      --color-principal: #075985;
+      --color-superficie: #e0f2fe;
+      --color-focus: #b45309;
+      --espai-1: 0.5rem;
+      --espai-2: 1rem;
+      --espai-3: 1.5rem;
+    }
+    ```
+
+![Captura del navegador d'una pàgina amb fons crema, text fosc, títol blau i una superfície blau clar: les variables creen una paleta coherent.](../assets/unitat-2/03-variables.svg)
 
 `rem` és una unitat relativa a la mida de lletra arrel del navegador. Per això, els espais definits amb `rem` acompanyen millor les preferències de mida de text que una mesura fixa en píxels.
 
-```css
-body {
-  margin: 0;
-  background-color: var(--color-fons);
-  color: var(--color-text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
-}
+??? example "Mostra la tipografia, el fons i els enllaços (17 línies)"
+    ```css linenums="1"
+    body {
+      margin: 0;
+      background-color: var(--color-fons);
+      color: var(--color-text);
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+    }
 
-h1,
-h2,
-h3 {
-  line-height: 1.2;
-}
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
 
-a {
-  color: var(--color-principal);
-}
-```
+    a {
+      color: var(--color-principal);
+    }
+    ```
+
+![Captura del navegador amb una jerarquia clara: títol blau, text fosc amb interlineat llegible i un enllaç blau sobre fons clar.](../assets/unitat-2/04-tipografia.svg)
 
 La jerarquia visual —mida, pes o color— ajuda a llegir, però no substituïx la jerarquia HTML de `h1`, `h2` i `h3`. Mantín un contrast clar entre text i fons. Si tens connexió, pots comprovar una combinació amb una eina de contrast; en qualsevol cas, llig el text amb llum baixa i amb la pantalla ampliada.
 
@@ -216,6 +230,8 @@ Comença el full amb esta regla:
 }
 ```
 
+![Captura del navegador a 320 píxels: una fitxa amb vora i espai interior cap dins del marge lateral, sense desplaçament horitzontal.](../assets/unitat-2/05-border-box.svg)
+
 Amb `border-box`, l'amplària declarada inclou el `padding` i la `border`; és més previsible quan la pantalla s'estreny. Afig després un contenidor per al contingut principal:
 
 ```css
@@ -224,6 +240,8 @@ main {
   margin-inline: auto;
 }
 ```
+
+![Captura del navegador en pantalla ampla: el contingut queda centrat i la línia de text no ocupa tota l'amplària de la finestra.](../assets/unitat-2/06-amplaria-segura.svg)
 
 `min()` tria el valor més menut: deixa 1 `rem` de marge a cada costat en una pantalla estreta i evita línies excessivament llargues en una pantalla ampla. `margin-inline: auto` centra el bloc en la direcció de lectura.
 
@@ -236,30 +254,33 @@ main {
 
 **Flexbox** distribuïx elements sobretot en una fila o una columna. És adequat per al grup d'enllaços que ja tens dins de `nav`:
 
-```css
-header {
-  width: min(100% - 2rem, 70rem);
-  margin-inline: auto;
-  padding-block: var(--espai-2);
-}
+??? example "Mostra el menú adaptable amb Flexbox (22 línies)"
+    ```css linenums="1"
+    header {
+      width: min(100% - 2rem, 70rem);
+      margin-inline: auto;
+      padding-block: var(--espai-2);
+    }
 
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espai-1);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--espai-1);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-nav a {
-  display: inline-block;
-  padding: 0.5rem 0.75rem;
-  background-color: var(--color-principal);
-  color: #ffffff;
-  text-decoration: none;
-}
-```
+    nav a {
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      background-color: var(--color-principal);
+      color: #ffffff;
+      text-decoration: none;
+    }
+    ```
+
+![Captura del navegador a 320 píxels: quatre opcions del menú blau es repartixen en dues línies amb una separació regular.](../assets/unitat-2/07-flexbox.svg)
 
 `flex-wrap: wrap` permet que els enllaços passen a una línia nova si no caben. `gap` crea la separació; no necessites afegir marges diferents a cada enllaç.
 
@@ -267,25 +288,28 @@ nav a {
 
 **Grid** és útil quan distribuïxes elements en files i columnes. Després d'afegir `class="productes"` a la secció de productes, aplica:
 
-```css
-.productes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: var(--espai-2);
-  margin-block: var(--espai-3);
-}
+??? example "Mostra les fitxes adaptables amb Grid (17 línies)"
+    ```css linenums="1"
+    .productes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: var(--espai-2);
+      margin-block: var(--espai-3);
+    }
 
-.productes > h2 {
-  grid-column: 1 / -1;
-}
+    .productes > h2 {
+      grid-column: 1 / -1;
+    }
 
-.productes article {
-  padding: var(--espai-2);
-  border: 1px solid #94a3b8;
-  border-radius: 0.5rem;
-  background-color: #ffffff;
-}
-```
+    .productes article {
+      padding: var(--espai-2);
+      border: 1px solid #94a3b8;
+      border-radius: 0.5rem;
+      background-color: #ffffff;
+    }
+    ```
+
+![Captura del navegador en pantalla ampla: el títol de Productes destacats ocupa tota la fila i tres fitxes amb vora s'alineen en columnes.](../assets/unitat-2/08-grid.svg)
 
 `minmax(16rem, 1fr)` diu que una fitxa no serà més estreta de `16rem` i que pot créixer si hi ha espai. `auto-fit` calcula quantes columnes caben. Amb una pantalla estreta, les fitxes passen a una columna sense canviar els `article` per `div` ni afegir una media query.
 
@@ -293,7 +317,10 @@ nav a {
 
 Aplica el `link` a les dos pàgines i afegix `class="productes"` a la secció que conté els dos `article` de `index.html`. Després copia este fitxer complet a `css/estils.css`:
 
-```css title="css/estils.css"
+<details markdown="1">
+<summary>Mostra el fitxer complet <code>css/estils.css</code> (130 línies)</summary>
+
+```css title="css/estils.css" linenums="1"
 :root {
   --color-fons: #fffdf8;
   --color-text: #24303a;
@@ -425,6 +452,10 @@ textarea:focus-visible {
   }
 }
 ```
+
+</details>
+
+![Captura del navegador del minilloc complet en pantalla ampla: capçalera amb títol i menú, dues fitxes de producte i contingut centrat amb amplària limitada.](../assets/unitat-2/09-estils-complet.svg)
 
 L'única **media query** organitza la capçalera en fila quan hi ha prou espai. La resta de l'adaptació ve d'amplàries fluides, `flex-wrap` i Grid. No ocultes l'enllaç de salt: quan rep focus, el navegador ha de poder mostrar-lo i usar-lo.
 
