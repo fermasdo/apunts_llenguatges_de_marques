@@ -11,15 +11,15 @@
   <text x="82" y="99" class="label">margin</text>
   <text x="82" y="128" class="detail">espai exterior</text>
 
-  <rect x="165" y="145" width="570" height="270" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="14"/>
+  <rect x="165" y="145" width="570" height="300" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="14"/>
   <text x="450" y="187" text-anchor="middle" class="label">border · vora</text>
 
-  <rect x="225" y="220" width="450" height="135" rx="4" fill="#fef3c7"/>
+  <rect x="225" y="220" width="450" height="190" rx="4" fill="#fef3c7"/>
   <text x="450" y="253" text-anchor="middle" class="label">padding</text>
   <text x="450" y="280" text-anchor="middle" class="detail">espai interior</text>
 
-  <rect x="335" y="300" width="230" height="85" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
-  <text x="450" y="352" text-anchor="middle" class="content">contingut</text>
+  <rect x="335" y="305" width="230" height="70" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <text x="450" y="349" text-anchor="middle" class="content">contingut</text>
 
   <path d="M 160 455 H 740" stroke="#64748b" stroke-width="2"/>
   <text x="450" y="535" text-anchor="middle" class="detail">De fora cap a dins: margin → border → padding → contingut</text>
