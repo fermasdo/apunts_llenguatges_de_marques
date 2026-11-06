@@ -6,3 +6,11 @@
   max-inline-size: min(100%, 60rem);
   margin-inline: auto;
 }
+
+/* Diagrames conceptuals de la unitat 2. */
+.md-content img.u2-diagrama {
+  display: block;
+  inline-size: min(100%, 48rem);
+  block-size: auto;
+  margin-inline: auto;
+}

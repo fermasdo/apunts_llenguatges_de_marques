@@ -222,6 +222,8 @@ Cada element visible ocupa una **caixa**. De fora cap a dins, té:
 margin → border → padding → contingut
 ```
 
+![Diagrama del model de caixa: una zona exterior etiquetada com a margin envolta la border; dins hi ha el padding i, al centre, el contingut.](../assets/unitat-2/model-caixa.svg){ .u2-diagrama }
+
 - `margin` separa la caixa d'altres caixes.
 - `border` és la vora.
 - `padding` separa el contingut de la vora.
